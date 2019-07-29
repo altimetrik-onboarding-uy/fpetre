@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# We only need the content of the build folder for this branch so ...
+/public
+/src
+package.json
+package-lock.json
+LICENSE
+README.md
+tsconfig.json
+yarn.lock
