@@ -4,7 +4,7 @@ import { NavigateNext } from "styled-icons/material/NavigateNext";
 import { NavigateBefore } from "styled-icons/material/NavigateBefore";
 import styled, { withTheme } from "styled-components";
 import { textColor } from "../../theme";
-import { action, calendarState } from "../../interfaces";
+import { Action, CalendarState } from "../../interfaces";
 
 const MonthSelectorContainer = styled.div`
   display: flex;
@@ -48,8 +48,8 @@ const MonthSelector = (props: {
   mini?: boolean;
   onlyYear?: boolean;
   theme?: { mode: string };
-  dispatch?: React.Dispatch<action>;
-  state: calendarState;
+  dispatch?: React.Dispatch<Action>;
+  state: CalendarState;
 }) => {
   const { mini, onlyYear, dispatch, state } = props;
   const currentDate = mini ? state.currentDateMin : state.currentDate;

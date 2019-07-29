@@ -1,5 +1,5 @@
 import React from "react";
-import { day as dayI, action, calendarState } from "../../interfaces";
+import { Day, Action, CalendarState } from "../../interfaces";
 import Modal from "../page/Modal";
 import { handleEnterPress } from "../../utils/a11y";
 import TaskList from "./TaskList";
@@ -41,11 +41,11 @@ const DateContainer = styled.p`
 `;
 const DayBox = (props: {
   weekDay?: string;
-  day: dayI;
+  day: Day;
   index: number;
   mini: boolean;
-  state: calendarState;
-  dispatch?: React.Dispatch<action>;
+  state: CalendarState;
+  dispatch?: React.Dispatch<Action>;
 }) => {
   const {
     day: { timeStamp, disabled },
@@ -57,7 +57,7 @@ const DayBox = (props: {
   } = props;
   const tabIndex = disabled ? {} : { tabIndex: 0 };
   const todayTasks = tasks.filter(
-    ({ day }: { day: dayI }) => day.timeStamp === timeStamp
+    ({ day }: { day: Day }) => day.timeStamp === timeStamp
   );
   const todayTimeStamp: number = new Date().setHours(0, 0, 0, 0);
   const toggleModal = (ev: any) => {

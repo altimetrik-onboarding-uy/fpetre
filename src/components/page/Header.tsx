@@ -5,7 +5,7 @@ import styled, { withTheme } from "styled-components";
 import { CalendarAlt } from "styled-icons/fa-solid/CalendarAlt";
 import { backgroundColor, textColor, oppositeBlue } from "../../theme";
 import { useTheme } from "../../ThemeContext";
-import { calendarState, action } from "../../interfaces";
+import { CalendarState, Action } from "../../interfaces";
 
 const CalendarIcon = styled(CalendarAlt)`
   height: 40px;
@@ -62,8 +62,8 @@ const Sky = styled.div`
   max-width: 40px;
 `;
 const Header = (props: {
-  state: calendarState;
-  dispatch?: Dispatch<action>;
+  state: CalendarState;
+  dispatch?: Dispatch<Action>;
   theme: { mode: string };
 }) => {
   const { dispatch, state } = props;

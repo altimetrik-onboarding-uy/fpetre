@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Input, TimePicker } from "../elements";
-import { day as iday } from "../../interfaces";
+import { Day } from "../../interfaces";
 import { Close } from "styled-icons/material/Close";
 import styled from "styled-components";
 import { textColor, backgroundColor, hoverColor } from "../../theme";
@@ -26,7 +26,7 @@ const TaskName = styled.div`
     background-color: transparent !important;
   }
 `;
-const Modal = (props: { dayIndex: number; day: iday; dispatch: any }) => {
+const Modal = (props: { dayIndex: number; day: Day; dispatch: any }) => {
   const { dayIndex, day, dispatch } = props;
 
   const [showTimePicker, setShowTimePicker] = useState<boolean>(false);

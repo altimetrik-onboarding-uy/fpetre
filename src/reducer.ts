@@ -1,13 +1,13 @@
-import { calendarState, action as actionI } from "./interfaces";
+import { CalendarState, Action } from "./interfaces";
 
 export const calendarReducer = (
-  state: calendarState,
-  action: actionI
-): calendarState => {
+  state: CalendarState,
+  action: Action
+): CalendarState => {
   const mini = action.payload ? action.payload.mini : false;
   switch (action.type) {
     case "CHANGE_CALENDAR_MODE": {
-      const newState: calendarState = {
+      const newState: CalendarState = {
         ...state,
         calendarMode: action.payload.calendarMode
       };
@@ -23,7 +23,7 @@ export const calendarReducer = (
 
     case "ADD_TASK": {
       const { title, time, day } = action.payload.task;
-      const newState: calendarState = {
+      const newState: CalendarState = {
         ...state,
         tasks: [...state.tasks, { title, time, day }],
         currentDayId: 0
@@ -32,7 +32,7 @@ export const calendarReducer = (
       return newState;
     }
     case "SET_SELECTED_DAY": {
-      const newState: calendarState = {
+      const newState: CalendarState = {
         ...state,
         selectedDayMini: action.payload.dayId
       };
@@ -40,7 +40,7 @@ export const calendarReducer = (
       return newState;
     }
     case "TOGGLE_MODAL": {
-      const newState: calendarState = {
+      const newState: CalendarState = {
         ...state,
         currentDayId: action.payload.dayId
       };
@@ -49,7 +49,7 @@ export const calendarReducer = (
       return newState;
     }
     case "NEXT_MONTH": {
-      let newState: calendarState;
+      let newState: CalendarState;
       const currentDate = mini ? "currentDateMin" : "currentDate";
       if (new Date(state[currentDate]).getMonth() === 11) {
         const year = new Date(state[currentDate]).getFullYear() + 1;
@@ -71,7 +71,7 @@ export const calendarReducer = (
     }
 
     case "PREV_MONTH": {
-      let newState: calendarState;
+      let newState: CalendarState;
       const currentDate = mini ? "currentDateMin" : "currentDate";
       if (new Date(state[currentDate]).getMonth() === 0) {
         newState = {
@@ -95,7 +95,7 @@ export const calendarReducer = (
     }
 
     case "PREV_YEAR": {
-      const newState: calendarState = {
+      const newState: CalendarState = {
         ...state,
         currentDate: new Date(
           new Date(state.currentDate).getFullYear() - 1,
@@ -106,7 +106,7 @@ export const calendarReducer = (
       return newState;
     }
     case "NEXT_YEAR": {
-      const newState: calendarState = {
+      const newState: CalendarState = {
         ...state,
         currentDate: new Date(
           new Date(state.currentDate).getFullYear() + 1,
