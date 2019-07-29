@@ -5,6 +5,7 @@ import { handleEnterPress } from "../../utils/a11y";
 import TaskList from "./TaskList";
 import styled from "styled-components";
 import { backgroundColor, textColor } from "../../theme";
+import { SET_SELECTED_DAY, TOGGLE_MODAL } from "../../reducer/actions";
 
 const DayBoxContainer = styled.div`
   position: relative;
@@ -62,10 +63,10 @@ const DayBox = (props: {
   const todayTimeStamp: number = new Date().setHours(0, 0, 0, 0);
   const toggleModal = (ev: any) => {
     if (!disabled && dispatch && mini) {
-      dispatch({ type: "SET_SELECTED_DAY", payload: { dayId: timeStamp } });
+      dispatch({ type: SET_SELECTED_DAY, payload: { dayId: timeStamp } });
     }
     if (!disabled && dispatch && !mini) {
-      dispatch({ type: "TOGGLE_MODAL", payload: { dayId: timeStamp } });
+      dispatch({ type: TOGGLE_MODAL, payload: { dayId: timeStamp } });
     }
   };
   return (

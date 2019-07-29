@@ -6,6 +6,7 @@ import { CalendarAlt } from "styled-icons/fa-solid/CalendarAlt";
 import { backgroundColor, textColor, oppositeBlue } from "../../theme";
 import { useTheme } from "../../ThemeContext";
 import { CalendarState, Action } from "../../interfaces";
+import { CHANGE_CALENDAR_MODE } from "../../reducer/actions";
 
 const CalendarIcon = styled(CalendarAlt)`
   height: 40px;
@@ -71,7 +72,7 @@ const Header = (props: {
   const calendarMode = state.calendarMode;
   const handleChange = (calendarMode: string) => {
     dispatch &&
-      dispatch({ type: "CHANGE_CALENDAR_MODE", payload: { calendarMode } });
+      dispatch({ type: CHANGE_CALENDAR_MODE, payload: { calendarMode } });
   };
   return (
     <NavBar className="navbar">

@@ -5,6 +5,12 @@ import { NavigateBefore } from "styled-icons/material/NavigateBefore";
 import styled, { withTheme } from "styled-components";
 import { textColor } from "../../theme";
 import { Action, CalendarState } from "../../interfaces";
+import {
+  PREV_YEAR,
+  PREV_MONTH,
+  NEXT_MONTH,
+  NEXT_YEAR
+} from "../../reducer/actions";
 
 const MonthSelectorContainer = styled.div`
   display: flex;
@@ -58,8 +64,8 @@ const MonthSelector = (props: {
     .split(" ");
   const month = stringDateArr[1];
   const year = stringDateArr[3];
-  const previusDate = onlyYear ? "PREV_YEAR" : "PREV_MONTH";
-  const nextDate = onlyYear ? "NEXT_YEAR" : "NEXT_MONTH";
+  const previusDate = onlyYear ? PREV_YEAR : PREV_MONTH;
+  const nextDate = onlyYear ? NEXT_YEAR : NEXT_MONTH;
 
   return (
     <MonthSelectorContainer style={{ zoom: mini ? 0.7 : 1 }}>

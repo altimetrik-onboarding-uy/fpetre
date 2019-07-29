@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { textColor, backgroundColor, hoverColor } from "../../theme";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import "../animations/styles.css";
+import { ADD_TASK, TOGGLE_MODAL } from "../../reducer/actions";
 const CloseIcon = styled(Close)`
   height: 15px;
   color: ${textColor};
@@ -33,13 +34,13 @@ const Modal = (props: { dayIndex: number; day: Day; dispatch: any }) => {
   const [time, setTime] = useState<Date>(new Date());
   const [title, setTitle] = useState<string>("");
   const toggleModal = () => {
-    dispatch({ type: "TOGGLE_MODAL", payload: "" });
+    dispatch({ type: TOGGLE_MODAL, payload: "" });
   };
   const stopPropagation = (ev: any) => {
     ev.stopPropagation();
   };
   const saveTask = (ev: any) => {
-    dispatch({ type: "ADD_TASK", payload: { task: { title, time, day } } });
+    dispatch({ type: ADD_TASK, payload: { task: { title, time, day } } });
   };
 
   return (
